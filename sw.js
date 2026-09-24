@@ -1,16 +1,8 @@
-const CACHE = "ecos-mexico-v1";
-const FILES = [
-  "./",
-  "./index.html",
-  "./tlatelolco-68.html",
-  "./linea-tiempo.html",
-  "./destinos-de-mexico.html",
-  "./README.md"
-];
+const CACHE = "tlatelolco-68-movil-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting())
+    caches.open(CACHE).then((cache) => cache.addAll(["./", "./index.html"])).then(() => self.skipWaiting())
   );
 });
 
@@ -37,4 +29,3 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
-EOF

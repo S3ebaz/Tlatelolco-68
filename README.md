@@ -1,23 +1,7 @@
-# Ecos de México
+# Ellas en el 68 · Tlatelolco
 
-Sitio escolar de Historia de México.
+Página conmemorativa. Pensada para datos móviles: no usa Google Fonts ni Wikimedia.
 
-## Archivos
+Abre esta URL (no la del repositorio):
 
-| Archivo | Qué es |
-|---------|--------|
-| `index.html` | Portada |
-| `linea-tiempo.html` | De Mesoamérica a la actualidad |
-| `destinos-de-mexico.html` | Juego de decisiones |
-| `tlatelolco-68.html` | Conmemoración del 68 |
-| `sw.js` | Service worker (sin red después de la primera visita) |
-| `.gitignore` | Ignora ZIP y archivos basura |
-| `README.md` | Esta guía |
-
-## Publicar
-
-1. Repo **público**.
-2. Archivos en la **raíz**.
-3. Settings → Pages → `main` / `(root)` → Save.
-
-https://s3ebaz16.github.io/history-game/
+https://s3ebaz.github.io/Tlatelolco-68/
