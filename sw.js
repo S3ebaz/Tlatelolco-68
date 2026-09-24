@@ -1,4 +1,4 @@
-const CACHE = "tlatelolco-68-movil-v2";
+const CACHE = "tlatelolco-68-movil-v3";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -16,12 +16,20 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  const url = event.request.url;
+  if (url.includes("fonts.googleapis.com") || url.includes("fonts.gstatic.com")) {
+    event.respondWith(new Response("/* fuentes locales */", {
+      status: 200,
+      headers: { "Content-Type": "text/css" }
+    }));
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;
       return fetch(event.request).then((res) => {
         const copy = res.clone();
-        if (res.ok && event.request.url.startsWith(self.location.origin)) {
+        if (res.ok && url.startsWith(self.location.origin)) {
           caches.open(CACHE).then((cache) => cache.put(event.request, copy));
         }
         return res;
