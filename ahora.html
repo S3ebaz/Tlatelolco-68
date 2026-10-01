@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1A1614">
+<title>Tlatelolco 68</title>
+<style>
+body{margin:0;background:#1A1614;color:#F3EBD8;font-family:Georgia,serif;line-height:1.6}
+.w{max-width:720px;margin:0 auto;padding:1.4rem 1rem 2rem}
+h1{font-size:1.8rem;margin:.2rem 0}
+em{color:#C45C4A;font-style:italic}
+a{color:#D4B36A}
+.ok{background:#2A241E;border:1px solid #D4B36A;padding:.8rem 1rem;margin:1rem 0}
+button{background:#D4B36A;color:#1A1614;border:0;padding:.7rem 1rem;font-weight:700;margin:.3rem .3rem 0 0}
+</style>
+</head>
+<body>
+<div class="w">
+  <p>2 de octubre no se olvida</p>
+  <h1>Ellas en el 68</h1>
+  <p><em>Esta sí abre con datos móviles.</em></p>
+  <div class="ok">Si lees esto, la página ya cargó. Pesa 4 KB.</div>
+  <p><a href="./index.html">Abrir la línea de tiempo</a></p>
+  <p><button type="button" id="b">Borrar caché vieja</button></p>
+  <p id="m"></p>
+</div>
+<script>
+document.getElementById("b").onclick=async function(){
+  if(navigator.serviceWorker){
+    const rs=await navigator.serviceWorker.getRegistrations();
+    for(const r of rs) await r.unregister();
+  }
+  if(window.caches){
+    const ks=await caches.keys();
+    for(const k of ks) await caches.delete(k);
+  }
+  document.getElementById("m").textContent="Listo. Cierra esta pestaña y abre de nuevo la liga.";
+};
+</script>
+</body>
+</html>
