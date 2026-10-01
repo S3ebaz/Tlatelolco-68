@@ -3,148 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1A1614">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<title>2 de octubre no se olvida · Tlatelolco 1968</title>
-<link rel="manifest" href="manifest.webmanifest">
+<title>Tlatelolco 1968</title>
 <style>
-:root{
-  --bg:#1A1614;--card:#2A241E;--paper:#F3EBD8;--muted:#C4B8A4;
-  --line:rgba(243,235,216,.18);--red:#C45C4A;--gold:#D4B36A;
-  --d:Georgia,'Times New Roman',serif;--m:'Courier New',monospace;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--d);line-height:1.65}
-.wrap{max-width:920px;margin:0 auto;padding:2rem 1.1rem 2.6rem}
-.date{font-family:var(--m);letter-spacing:.16em;font-size:12px;color:var(--gold);text-transform:uppercase;text-align:center}
-h1{font-size:2.2rem;line-height:1.1;margin:.4rem 0 .5rem;text-align:center}
-h1 em{display:block;font-style:italic;font-size:.4em;color:var(--red);margin-top:.35em;font-weight:400}
-.dek{text-align:center;color:var(--muted);max-width:58ch;margin:0 auto 1rem}
-.legend,.names{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.chip{border:1px solid var(--gold);background:#2A241E;color:var(--paper);border-radius:999px;padding:7px 12px;font-family:var(--m);font-size:12px;cursor:pointer}
-.chip.active{background:var(--gold);color:#1A1614;font-weight:700}
-.names span{background:#3A2A22;color:#F7E7B0;border:1px solid var(--gold);padding:.4rem .65rem;font-weight:700;font-size:.95rem}
-.track-wrap{overflow-x:auto;margin:1.3rem -1.1rem;padding:10px 1.1rem 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#151210}
-.track{display:flex;gap:18px;min-width:max-content;position:relative;padding:22px 8px 8px}
-.track::before{content:'';position:absolute;left:0;right:0;top:50px;height:2px;background:var(--gold);opacity:.7}
-.mark{width:88px;background:none;border:none;color:var(--paper);display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:0;font-family:var(--m);font-size:11px;font-weight:700}
-.dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--gold);background:#151210;margin-top:8px}
-.mark.active .dot{background:var(--gold)}
-.mark.dim{opacity:.28}
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.2rem;position:relative;margin-top:.4rem}
-.tab{position:absolute;top:-10px;right:14px;background:var(--red);color:#fff;font-family:var(--m);font-size:10px;padding:3px 8px}
-.kicker{font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:0 0 .3rem}
-h2{font-size:1.45rem;margin:0 0 .7rem}
-.facts{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 .8rem}
-.facts li{font-family:var(--m);font-size:12px;border:1px solid var(--gold);padding:5px 9px;color:#F7E7B0}
-.note{margin:.8rem 0 0;padding-top:.7rem;border-top:1px solid var(--line);color:var(--muted);font-style:italic}
-.petition{background:#151210;border-left:3px solid var(--gold);padding:.7rem 1rem;margin:.7rem 0 0}
-.status{text-align:center;font-family:var(--m);font-size:11px;color:var(--gold);margin:.8rem 0 0}
-footer{text-align:center;margin-top:1.5rem;font-family:var(--m);font-size:11px;color:var(--muted)}
-@media(max-width:640px){h1{font-size:1.7rem}h2{font-size:1.25rem}}
+body{margin:0;background:#1A1614;color:#F3EBD8;font-family:Georgia,serif;line-height:1.55}
+.w{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:26px;margin:8px 0 10px}
+.sub{color:#C45C4A;font-style:italic}
+.gold{color:#D4B36A}
+.box{background:#2A241E;border:1px solid #5C5142;padding:12px;margin-top:12px}
+.row{overflow-x:auto;white-space:nowrap;padding:8px 0}
+.row button{margin-right:6px;margin-bottom:6px;background:#3A2A22;color:#F7E7B0;border:1px solid #D4B36A;padding:8px 10px;font-size:14px}
+.row button.on{background:#D4B36A;color:#1A1614}
+h2{font-size:20px;margin:0 0 8px}
+p{margin:0 0 8px}
+.note{color:#C4B8A4;font-style:italic;font-size:14px}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <p class="date">2 de octubre · no se olvida</p>
-  <h1>Ellas en el 68<em>Tlatelolco · funciona sin conexión</em></h1>
-  <p class="dek">Línea conmemorativa del movimiento estudiantil de 1968. Abre una vez con datos; después queda guardada en el celular.</p>
-  <div class="names">
-    <span>La Tita</span><span>La Nacha</span><span>Myrthokleia</span>
-    <span>Adriana Corona</span><span>Adela Salazar</span>
-  </div>
-  <p class="status" id="net">Revisando conexión…</p>
-  <div class="legend">
-    <button class="chip active" data-f="all">Todo</button>
-    <button class="chip" data-f="inicio">Julio</button>
-    <button class="chip" data-f="auge">Agosto</button>
-    <button class="chip" data-f="represion">Septiembre</button>
-    <button class="chip" data-f="octubre">2 de octubre</button>
-    <button class="chip" data-f="despues">Después</button>
-  </div>
-  <div class="track-wrap"><div class="track" id="track"></div></div>
-  <article class="card">
-    <span class="tab" id="tab"></span>
-    <p class="kicker" id="kicker"></p>
-    <h2 id="title"></h2>
-    <ul class="facts" id="facts"></ul>
-    <div id="body"></div>
-    <p class="note" id="note"></p>
-  </article>
-  <footer>Página escolar. Sin Google Fonts ni fotos externas. 2 de octubre no se olvida.</footer>
+<div class="w">
+<p class="gold">2 de octubre no se olvida</p>
+<h1>Ellas en el 68</h1>
+<p class="sub">Sirve en celulares antiguos. Sin fotos pesadas.</p>
+<p id="msg">Cargando fechas...</p>
+<div class="row" id="row"></div>
+<div class="box">
+<p class="gold" id="kicker">Inicio</p>
+<h2 id="tit">Tlatelolco 1968</h2>
+<div id="txt"><p>Toca una fecha arriba.</p></div>
+<p class="note" id="nota"></p>
+</div>
 </div>
 <script>
-const EVENTS=[
-{cat:"inicio",when:"22 jul",title:"Ellas también estaban desde el primer día",kicker:"Inicio · 22–23 de julio de 1968",
-body:"<p>El conflicto empieza en La Ciudadela. Al día siguiente hay represión en la Vocacional 5. Entre quienes protestan ya hay estudiantes del IPN y de prepas de la UNAM: mujeres y hombres.</p><p>En 1968 las mujeres eran cerca del 16% de la matrícula. Aun así, su participación en el movimiento fue alta: no solo acompañaban, organizaban.</p>",
-facts:["Vocacional 5","IPN y UNAM","Ellas en las calles"],
-note:"Contar el 68 sin ellas es contar solo la mitad."},
-{cat:"inicio",when:"Brigadas",title:"Las brigadas: columna del movimiento",kicker:"Julio–agosto · trabajo de base",
-body:"<p>Las brigadas rompían el cerco de la prensa. Mujeres subían a camiones, iban a mercados y plazas, leían la Constitución y explicaban el pliego de seis puntos.</p><p>Adriana Corona recordó a compañeras de 16 a 18 años que nunca habían hablado en público y se subían a un pesero a informar.</p>",
-facts:["Volantes","Adriana Corona","Mercados y camiones"],
-note:"Sin brigadas no había movimiento."},
-{cat:"auge",when:"2 ago",title:"Mujeres en el Consejo Nacional de Huelga",kicker:"Auge · 2 de agosto",
-body:"<p>El CNH nace el 2 de agosto. Era mayoritariamente masculino, pero hubo representantes mujeres:</p><ul><li><strong>Roberta Avendaño, La Tita</strong> — Derecho UNAM.</li><li><strong>Ana Ignacia Rodríguez, La Nacha</strong> — Derecho UNAM, de Taxco.</li><li><strong>Myrthokleia González</strong> — IPN, Wilfrido Massieu.</li><li><strong>Marcia Gutiérrez</strong> y <strong>Adriana Corona</strong>.</li></ul><p>A La Tita le decían que Derecho debía representarla un hombre. Ella no se bajó.</p>",
-facts:["CNH","La Tita y La Nacha","Myrthokleia"],
-note:"Unas 15 mujeres tuvieron voz en el CNH. Detrás había cientos."},
-{cat:"auge",when:"13 ago",title:"Ellas en las grandes marchas",kicker:"Auge · 13 y 27 de agosto",
-body:"<p>En la marcha del 13 de agosto al Zócalo y en la del 27, las mujeres van al centro de la calle. Marchar ya era romper la idea de que una mujer no sale a protestar.</p><p>El 27 se iza la bandera rojinegra. En la madrugada del 28 el ejército desaloja la plaza.</p>",
-facts:["13 de agosto","27 de agosto","Zócalo"],
-note:"La foto de archivo no siempre pone el nombre. La presencia sí está."},
-{cat:"auge",when:"Madres",title:"Madres, vecinas y el Comité de Padres",kicker:"Agosto–septiembre",
-body:"<p>No solo había estudiantes. <strong>Adela Salazar</strong> dirigió el Comité de Padres y más tarde fue presa política.</p><p>En Tlatelolco, las vecinas vieron llegar el ejército a su patio. Elena Poniatowska reunió testimonios de más de cien mujeres en <em>La noche de Tlatelolco</em>.</p>",
-facts:["Adela Salazar","Comité de Padres","Vecinas"],
-note:"El 68 también es una historia de casas y edificios."},
-{cat:"represion",when:"13 sep",title:"La Marcha del Silencio",kicker:"Septiembre · 13 de septiembre",
-body:"<p>Cientos de miles caminan en silencio por Reforma. Cinco días después el ejército toma Ciudad Universitaria.</p><p>La Nacha es detenida en Rectoría el 18 de septiembre. La Tita logra salir de CU.</p>",
-facts:["Marcha del Silencio","18 sep: toma de CU","Detención de La Nacha"],
-note:"Hay estudiantes detenidas desde esa madrugada."},
-{cat:"represion",when:"23 sep",title:"Santo Tomás y la convocatoria",kicker:"Septiembre · 23–30",
-body:"<p>El Casco de Santo Tomás (IPN) es atacado. Myrthokleia, del IPN, llega al CNH aunque en su escuela les decían a las mujeres que se quedaran en la cafetería.</p><p>El 30 el ejército sale de CU. El CNH convoca el mitin del 2 de octubre en la Plaza de las Tres Culturas.</p>",
-facts:["IPN","Myrthokleia","2 de octubre"],
-note:"El mitin se hace en una plaza cerrada entre edificios habitados."},
-{cat:"octubre",when:"16:00",title:"Llegan ellas a la plaza",kicker:"2 de octubre · 16:00",
-body:"<p>Al mitin llegan estudiantes, vecinas, niñas, maestras. La Nacha y La Tita van con el Comité de Derecho. Myrthokleia está entre las pocas mujeres que eligen oradores esa tarde: de unos 250 representantes, apenas unas diez son mujeres.</p>",
-facts:["Plaza de las Tres Culturas","La Nacha y La Tita","Familias de la unidad"],
-note:"No era un cuartel. Era una asamblea con vecinos."},
-{cat:"octubre",when:"17:55",title:"La señal y el cerco",kicker:"2 de octubre · 17:55",
-body:"<p>Bengalas. Luego disparos y el cerco. La Nacha y La Tita salen con vida.</p><p>En el memorial quedan nombres como <strong>Ana María Maximiliano Mendoza</strong>, <strong>Ana María Teuscher Krüger</strong> y <strong>Agustina Matus Campos</strong>. No hay lista oficial completa.</p>",
-facts:["Memorial","Nombres propios","Cifra incompleta"],
-note:"La conmemoración nombra. El Estado no entregó la lista."},
-{cat:"despues",when:"Cárcel",title:"Santa Martha Acatitla",kicker:"1968–1970",
-body:"<p>Varias mujeres van al reclusorio de Santa Martha. Cuatro permanecen años: La Tita, La Nacha, Amada Velasco y Adela Salazar. Les imputaron delitos comunes y políticos. Salen hacia finales de 1970.</p>",
-facts:["Santa Martha","Cuatro presas","Libertad 1970"],
-note:"El apodo se lo puso la criminalización. Lo convirtieron en nombre de lucha."},
-{cat:"despues",when:"Memoria",title:"Que no las vuelvan a borrar",kicker:"1971 — hoy",
-body:"<p>La Nacha dijo que las verdaderas heroínas son las anónimas. Cada 2 de octubre la marcha sale de Tlatelolco.</p><div class='petition'>2 de octubre no se olvida.<br>Ellas tampoco.</div>",
-facts:["Marcha anual","Testimonios","Memoria escolar"],
-note:"Página lista para usarse sin internet."}
+var DATOS = [
+["22 jul","Inicio","Ellas tambien estaban desde el primer dia","El conflicto empieza en La Ciudadela. Al dia siguiente hay represion en la Vocacional 5. Ya hay estudiantes del IPN y de la UNAM: mujeres y hombres."],
+["Brigadas","Julio-agosto","Las brigadas: columna del movimiento","Las brigadas rompian el cerco de la prensa. Mujeres subian a camiones y explicaban el pliego de seis puntos."],
+["2 ago","Auge","Mujeres en el CNH","Roberta Avendano (La Tita) y Ana Ignacia Rodriguez (La Nacha), de Derecho UNAM; Myrthokleia Gonzalez, del IPN; Marcia Gutierrez y Adriana Corona."],
+["13 ago","Auge","Ellas en las grandes marchas","El 13 de agosto marchan al Zocalo. El 27 hay una marcha enorme. El 28 el ejercito desaloja la plaza."],
+["Madres","Agosto-septiembre","Madres y vecinas","Adela Salazar dirigio el Comite de Padres. Elena Poniatowska reunio testimonios de mas de cien mujeres."],
+["13 sep","Septiembre","La Marcha del Silencio","Cientos de miles caminan en silencio. El 18 de septiembre el ejercito toma CU. La Nacha es detenida."],
+["23 sep","Septiembre","Convocatoria al 2 de octubre","Atacan Santo Tomas (IPN). El CNH convoca el mitin en la Plaza de las Tres Culturas."],
+["16:00","2 de octubre","Llegan ellas a la plaza","Llegan estudiantes, vecinas y maestras. La Nacha, La Tita y Myrthokleia estan ahi."],
+["17:55","2 de octubre","La senal y el cerco","Hay bengalas y disparos. La Nacha y La Tita salen con vida. El memorial guarda nombres de mujeres."],
+["Carcel","1968-1970","Santa Martha Acatitla","Cuatro mujeres permanecen presas anos: La Tita, La Nacha, Amada Velasco y Adela Salazar."],
+["Hoy","Memoria","Que no las vuelvan a borrar","Cada 2 de octubre la marcha sale de Tlatelolco. 2 de octubre no se olvida."]
 ];
-const track=document.getElementById("track");
-EVENTS.forEach((e,i)=>{
-  const b=document.createElement("button");
-  b.className="mark"; b.dataset.cat=e.cat;
-  b.innerHTML=`<span>${e.when}</span><span class="dot"></span>`;
-  b.onclick=()=>show(i);
-  track.appendChild(b);
-});
-function show(i){
-  const e=EVENTS[i];
-  tab.textContent=e.when; kicker.textContent=e.kicker; title.textContent=e.title;
-  body.innerHTML=e.body; note.textContent=e.note||"";
-  facts.innerHTML=""; e.facts.forEach(f=>{const li=document.createElement("li");li.textContent=f;facts.appendChild(li);});
-  document.querySelectorAll(".mark").forEach((m,n)=>m.classList.toggle("active",n===i));
+function ver(i){
+  var d = DATOS[i];
+  document.getElementById("kicker").innerHTML = d[1];
+  document.getElementById("tit").innerHTML = d[2];
+  document.getElementById("txt").innerHTML = "<p>" + d[3] + "</p>";
+  document.getElementById("nota").innerHTML = d[0];
+  var btns = document.getElementById("row").getElementsByTagName("button");
+  var n;
+  for(n=0;n<btns.length;n++){ btns[n].className = (n===i) ? "on" : ""; }
 }
-document.querySelectorAll(".chip").forEach(ch=>ch.onclick=()=>{
-  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active")); ch.classList.add("active");
-  const f=ch.dataset.f;
-  document.querySelectorAll(".mark").forEach(m=>m.classList.toggle("dim",!(f==="all"||m.dataset.cat===f)));
-});
-show(0);
-const net=document.getElementById("net");
-function ping(){net.textContent=navigator.onLine?"Con datos o Wi-Fi · la página ya quedó guardada":"Sin conexión · estás viendo la copia local";}
-ping(); addEventListener("online",ping); addEventListener("offline",ping);
-if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js");}
+var row = document.getElementById("row");
+var i;
+for(i=0;i<DATOS.length;i++){
+  var b = document.createElement("button");
+  b.innerHTML = DATOS[i][0];
+  b.setAttribute("data-i", String(i));
+  b.onclick = function(){ ver(parseInt(this.getAttribute("data-i"),10)); };
+  row.appendChild(b);
+}
+ver(0);
+document.getElementById("msg").innerHTML = "Toca una fecha.";
+if(navigator.serviceWorker && navigator.serviceWorker.getRegistrations){
+  navigator.serviceWorker.getRegistrations().then(function(rs){
+    var j; for(j=0;j<rs.length;j++){ rs[j].unregister(); }
+  });
+}
 </script>
 </body>
 </html>
