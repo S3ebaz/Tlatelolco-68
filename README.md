@@ -1,7 +1,5 @@
-# Ellas en el 68 · Tlatelolco
+# Tlatelolco 68
 
-Página conmemorativa. Pensada para datos móviles: no usa Google Fonts ni Wikimedia.
-
-Abre esta URL (no la del repositorio):
+Página conmemorativa. Abre rápido y funciona sin conexión después de la primera visita.
 
 https://s3ebaz.github.io/Tlatelolco-68/
